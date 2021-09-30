@@ -1,83 +1,61 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/@vue/*",
-    "packages/test/*",
-    "packages/vue-cli-version-marker"
+  "name": "@vue/cli-plugin-typescript",
+  "version": "5.0.0-beta.4",
+  "description": "typescript plugin for vue-cli",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuejs/vue-cli.git",
+    "directory": "packages/@vue/cli-plugin-typescript"
+  },
+  "keywords": [
+    "vue",
+    "cli",
+    "typescript"
   ],
-  "scripts": {
-    "test": "node --experimental-vm-modules scripts/test.js",
-    "pretest": "yarn clean",
-    "lint": "eslint --fix packages/**/*.js packages/**/bin/*",
-    "lint-without-fix": "eslint packages/**/*.js packages/**/bin/*",
-    "check-links": "node scripts/checkLinks.js",
-    "clean": "rimraf packages/test/* packages/**/temp/*",
-    "clean-e2e": "rimraf /tmp/verdaccio-workspace",
-    "sync": "node scripts/syncDeps.js",
-    "boot": "node scripts/bootstrap.js",
-    "release": "yarn --pure-lockfile && yarn clean && node scripts/release.js",
-    "version": "node scripts/genChangelog.js && node scripts/genDocs.js && git add CHANGELOG.md && git add docs",
-    "docs": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "patch-chromedriver": "node scripts/patchChromedriver.js"
+  "author": "Evan You",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vuejs/vue-cli/issues"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/verifyCommitMsg.js"
+  "homepage": "https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-typescript#readme",
+  "publishConfig": {
+    "access": "public"
   },
-  "lint-staged": {
-    "*.{js,vue}": "eslint --fix",
-    "packages/**/bin/*": "eslint --fix"
-  },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@typescript-eslint/eslint-plugin": "^4.15.1",
-    "@typescript-eslint/parser": "^4.15.1",
-    "@vue/eslint-config-airbnb": "^5.3.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/eslint-config-standard": "^6.1.0",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "@vuepress/plugin-pwa": "^1.8.1",
-    "@vuepress/theme-vue": "^1.8.1",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^27.0.6",
-    "chromedriver": "^92.0.0",
-    "debug": "^4.1.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-graphql": "^4.0.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-vue": "^7.6.0",
-    "execa": "^1.0.0",
-    "geckodriver": "^2.0.1",
+    "@types/webpack-env": "^1.15.2",
+    "@vue/cli-shared-utils": "^5.0.0-beta.4",
+    "babel-loader": "^8.2.2",
+    "cache-loader": "^4.1.0",
+    "fork-ts-checker-webpack-plugin": "^6.1.0",
     "globby": "^11.0.2",
-    "graphql": "^15.5.0",
-    "http-server": "^0.12.3",
-    "inquirer": "^8.0.0",
-    "jest": "^27.0.6",
-    "lerna": "^4.0.0",
-    "lerna-changelog": "^2.1.0",
-    "lint-staged": "^11.1.2",
-    "memfs": "^3.2.0",
-    "minimist": "^1.2.5",
-    "node-fetch": "^2.6.1",
-    "postcss": "8.3.6",
-    "prettier": ">= 1.13.0",
-    "rimraf": "^3.0.2",
-    "semver": "^7.3.4",
-    "stylus-loader": "^3.0.2",
-    "typescript": "~4.1.5",
-    "verdaccio": "^5.0.1",
-    "vuepress": "^1.8.1",
-    "webpack": "^5.22.0",
+    "thread-loader": "^3.0.0",
+    "ts-loader": "^8.0.17",
+    "webpack": "^4.45.0",
     "yorkie": "^2.0.0"
   },
-  "resolutions": {
-    "puppeteer": "1.11.0",
-    "vue-template-compiler": "^2.6.14",
-    "vue-server-renderer": "^2.6.14"
+  "peerDependencies": {
+    "@vue/cli-service": "^3.0.0 || ^4.0.0 || ^5.0.0-0",
+    "@vue/compiler-sfc": "^3.0.0-beta.14",
+    "typescript": ">=2",
+    "vue-template-compiler": "^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/compiler-sfc": {
+      "optional": true
+    },
+    "vue-template-compiler": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.15",
+    "@types/jest": "^27.0.1",
+    "@types/mocha": "^8.2.1",
+    "jscodeshift": "^0.13.0",
+    "typescript": "~4.1.5",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.1.2"
   }
 }
